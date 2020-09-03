@@ -10,8 +10,8 @@ using WebApiWithIdentity.Entities;
 namespace WebApiWithIdentity.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200902130809_username")]
-    partial class username
+    [Migration("20200903095455_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

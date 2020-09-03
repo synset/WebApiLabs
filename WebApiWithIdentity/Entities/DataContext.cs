@@ -8,7 +8,7 @@ namespace WebApiWithIdentity.Entities
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> option) : base(option)
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
         }

@@ -13,7 +13,7 @@ namespace WebApiWithIdentity.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FistName = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: false),
                     LastName = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     PasswordHash = table.Column<byte[]>(nullable: false),
