@@ -9,8 +9,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using WeApiEntityFramework.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace WebApiEntityFramework
+namespace WeApiEntityFramework
 {
     public class Startup
     {
@@ -25,6 +27,16 @@ namespace WebApiEntityFramework
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<ApiContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
+            
+            services
+                .AddMvc(options => options.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Latest)
+                .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling =
+                        Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
